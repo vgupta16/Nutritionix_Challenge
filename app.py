@@ -4,7 +4,7 @@ import json
 app = Flask(__name__)
 
 # Retrieve keys from https://developer.nutritionix.com/signup
-nix = Nutritionix(app_id="93379c0c", api_key="691898b42aea010dc75e7c7cbea5e611")
+nix = Nutritionix(app_id="", api_key="")
 
 @app.route('/')
 def index():
