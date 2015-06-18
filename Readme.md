@@ -26,4 +26,4 @@ To run the application, you first need to add your application id and applicatio
 
 After adding the keys and saving the file, run the application locally using the command `python app.py`. This will start the server on `127.0.0.1:5000`. 
 
-This application is also hosted on Heroku using the link g
+This application is also hosted on Heroku using the link https://desolate-fjord-2941.herokuapp.com/
