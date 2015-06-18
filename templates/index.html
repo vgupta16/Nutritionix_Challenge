@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<h1 style="background-color:lightblue" style="font-size:300%"> Nutrition Search </h1>
+<title>Search form with AngualrJS</title>
+	<script src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+	<script src="static/app.js"></script>
+</head>
+
+<body>
+
+	<div ng-controller="SearchCtrl">
+	<form class="well form-search">
+		<label>Search:</label>
+		<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Foods..."/>
+		<button type="submit" class="btn" ng-click="search()">Search</button>
+		<p class="help-block" >Try for example: "pizza" or "hamburger"</p>		
+    </form>
+	<div ng-model="result">
+
+		<p style="font-size:130%" ng-show="no_items">The search item does not exist in the database.</p>
+
+		<p style="font-size:130%" ng-show="items">Displaying top 5 results: </p>
+
+		<table ng-show="items" border="1">
+			<tr>
+				<th>Brand</th>
+				<th>Serving Size</th>
+				<th>Serving Unit</th>
+				<th>Carbs</th>
+				<th>Calories</th>
+				<th>Protein</th>
+				<th>Fat</th>
+			</tr>
+			<tr ng-repeat="item in result">
+				<td>{{item.brand}}</td>
+				<td>{{item.serving_size}}</td>
+				<td>{{item.serving_unit}}</td>
+				<td>{{item.carbs}}</td>
+				<td>{{item.calories}}</td>
+				<td>{{item.protein}}</td>
+				<td>{{item.fat}}</td>
+			</tr>
+		</table>
+
+	</div>
+	</div>
+</body>
+</html> 
