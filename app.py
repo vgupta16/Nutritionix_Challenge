@@ -3,7 +3,8 @@ from nutritionix import Nutritionix
 import json
 app = Flask(__name__)
 
-nix = Nutritionix(app_id="93379c0c", api_key="691898b42aea010dc75e7c7cbea5e611")
+# Retrieve keys from https://developer.nutritionix.com/signup
+nix = Nutritionix(app_id="", api_key="")
 
 @app.route('/')
 def index():
@@ -15,7 +16,7 @@ def search():
 	search_query = parsed_request['data']
 	json_return = []
 	try:
-		#query the top ten hits from the api
+		#query the top five hits from the api
 		search_result = nix.search(search_query, results='0:5').json()
 		for item in search_result['hits']:
 			item_dict = {}
@@ -45,4 +46,4 @@ def parse_result(result):
  
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
