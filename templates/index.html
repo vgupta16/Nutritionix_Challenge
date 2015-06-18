@@ -24,6 +24,7 @@
 
 		<table ng-show="items" border="1">
 			<tr>
+				<th>Food</th>
 				<th>Brand</th>
 				<th>Serving Size</th>
 				<th>Serving Unit</th>
@@ -33,6 +34,7 @@
 				<th>Fat</th>
 			</tr>
 			<tr ng-repeat="item in result">
+				<td>{{item.food}}</td>
 				<td>{{item.brand}}</td>
 				<td>{{item.serving_size}}</td>
 				<td>{{item.serving_unit}}</td>

@@ -4,7 +4,7 @@ import json
 app = Flask(__name__)
 
 # Retrieve keys from https://developer.nutritionix.com/signup
-nix = Nutritionix(app_id="", api_key="")
+nix = Nutritionix(app_id="93379c0c", api_key="691898b42aea010dc75e7c7cbea5e611")
 
 @app.route('/')
 def index():
@@ -18,9 +18,11 @@ def search():
 	try:
 		#query the top five hits from the api
 		search_result = nix.search(search_query, results='0:5').json()
+		print search_result
 		for item in search_result['hits']:
 			item_dict = {}
 			item_dict['brand'] = item['fields']['brand_name']
+			item_dict['food'] = item['fields']['item_name']
 			item_id = item['_id']
 			item_info = nix.item(id=item_id).json()
 			parsed = parse_result(item_info)
